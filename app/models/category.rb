@@ -53,7 +53,12 @@ class Category < ActiveRecord::Base
   def published_articles
     articles.already_published
   end
-
+  
+  def self.get_or_build_category id = nil
+    return Category.find(id) if id
+    category = Category.new
+  end
+ 
   def display_name
     name
   end
