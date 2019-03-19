@@ -63,5 +63,21 @@ describe Admin::CategoriesController do
     assert_raise(ActiveRecord::RecordNotFound) { Category.find(test_id) }
   end
   
+  it "should create new category with unique name only, delete a category" do
+      #create new category with unique names should occur successfully
+      post :new, :category => {:name => "category_1", :keywords => "keyword_1"}
+      expect(Category.where(:name => "category_1")).to exist
+      post :new, :category => {:name => "category_2", :keywords => "keyword_2"}
+      expect(Category.where(:name => "category_2")).to exist
+      
+      #create new category with non-unique name should raise RecordInvalid exception
+      assert_raise(ActiveRecord::RecordInvalid) {post :new, :category => {:name => "category_1", :keywords => "keyword_2"}}
+      
+      #delete a record and expect it to be deleted successfully
+      post :destroy, :id => (Category.find_by_name("category_2")).id
+      expect(Category.find_by_name("category_2")).to eql(nil)
+      
+  end 
+
 
 end
