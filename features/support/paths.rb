@@ -18,6 +18,7 @@ module NavigationHelpers
     when /^the new article page$/
       '/admin/content/new'
     
+    # added below as a part of HW 4
     when /^the new categories page$/
       '/admin/categories/new'
     

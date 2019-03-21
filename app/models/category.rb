@@ -54,6 +54,7 @@ class Category < ActiveRecord::Base
     articles.already_published
   end
   
+  # modified this as a part of HW 4
   def self.get_or_build_category id = nil
     return Category.find(id) if id
     category = Category.new

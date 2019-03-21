@@ -63,6 +63,7 @@ describe Admin::CategoriesController do
     assert_raise(ActiveRecord::RecordNotFound) { Category.find(test_id) }
   end
   
+  # added this as a part of HW 4
   it "should create new category with unique name only, delete a category" do
       #create new category with unique names should occur successfully
       post :new, :category => {:name => "category_1", :keywords => "keyword_1"}

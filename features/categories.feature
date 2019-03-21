@@ -1,3 +1,4 @@
+# added this file as a part of HW 4
  Feature: Create new categories 
   As a blog administrator
   In order to categorize my articles 

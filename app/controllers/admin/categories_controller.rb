@@ -23,6 +23,7 @@ class Admin::CategoriesController < Admin::BaseController
 
   private
 
+# modified this as a part of HW 4
   def new_or_edit
     @categories = Category.find(:all)
     #@category = Category.find(params[:id])
