@@ -11,16 +11,18 @@
     Given I am on the new categories page
     When I fill in "category_name" with "new_category_1"
     And I fill in "category_keywords" with "keyword_1"
+    And I fill in "category_description" with "description_1"
     And I press "Save"
     Then I should see "Category was successfully saved."
-
-  Scenario: Successfully create new article and link it to a category 
+    
+ Scenario: Successfully edit newly created category
     Given I am on the new categories page
-    When I fill in "category_name" with "category_2"
-    And I fill in "category_keywords" with "keyword_2"
-    Then I press "Save"
+    When I fill in "category_name" with "new_category_1"
+    And I fill in "category_keywords" with "keyword_1"
+    And I fill in "category_description" with "description_1"
+    And I press "Save"
     Then I should see "Category was successfully saved."
-    Given I am on the new article page
-    When I fill in "article_title" with "article_2"
-    And I press "Publish"
-    Then I should be on the admin content page
+    Given I am on the edit page for "new_category_1"
+    And I fill in "category_description" with "description_1"
+    And I press "Save"
+    Then I should see "Category was successfully saved."
